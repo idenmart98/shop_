@@ -1,4 +1,4 @@
-from .models import Category,Product, CartProduct
+from .models import Category, Product , CartProduct, Cart
 from rest_framework import serializers
 
 
@@ -14,8 +14,14 @@ class ProductSerializer(serializers.ModelSerializer):
         model = Product
         fields = '__all__'
 
-class CartProductSerializer(serializers.ModelSerializer):
+class CartCreateSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Cart
+        exclude = ('created','status','count','summ')
+
+class CartProductCreateSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = CartProduct
-        fields = '__all__'
+        fields = "__all__" 
