@@ -1,0 +1,8 @@
+<a href="{{url}}">{{ order_name }}</a>
+<strong>Cумма заказа: </strong> {{sum}}
+<strong>Кол-во товаров: </strong> {{count}}
+<strong>Владелец: </strong> {{owner}}
+<strong>Номер: </strong> {{number}}
+{% for product in products %}
+<strong>Продукт: </strong> {{product}}
+{% endfor %}

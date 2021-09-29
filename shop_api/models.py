@@ -1,4 +1,6 @@
 from django.db import models
+from django.urls import reverse
+from django.contrib.contenttypes.models import ContentType
 
 CREATED = "CREATED"
 PENDING = "PENDING"
@@ -44,6 +46,10 @@ class Cart(models.Model):
     count = models.IntegerField(default=0)
     status = models.CharField(max_length=10, choices=CART_CHOICES, default=CREATED)
     created = models.DateTimeField(auto_now_add=True)
+
+    def get_admin_url(self):
+        content_type = ContentType.objects.get_for_model(self.__class__)
+        return reverse("admin:%s_%s_change" % (content_type.app_label, content_type.model), args=(self.id,))
 
 class CartProduct(models.Model):
     cart = models.ForeignKey(Cart, related_name="cart_products", on_delete=models.CASCADE)

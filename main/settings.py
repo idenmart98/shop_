@@ -124,3 +124,5 @@ USE_TZ = True
 STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+BOT_TOKEN = '1322222808:AAGp8EgejhI_MHpZ2HIMzemoYPBBE3cKKDo'
+GROUP_ID = '-522210946'
